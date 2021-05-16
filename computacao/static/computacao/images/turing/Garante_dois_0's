@@ -1,0 +1,20 @@
+digraph "Máquina de Turing que aceita sequências binárias que garante dois 0's" {
+	graph [rankdir=LR]
+	node [shape=circle]
+	edge [arrowhead=vee arrowsize=1]
+	Start [label="" shape=none]
+	A
+	D
+	B
+	C
+	ha [shape=doublecircle]
+	Start -> A
+	A -> D [label="11R"]
+	A -> B [label="0XR"]
+	B -> B [label="1YR"]
+	B -> D [label="$$R"]
+	B -> C [label="0XR"]
+	C -> D [label="11R"]
+	C -> D [label="00R"]
+	C -> ha [label="$$R"]
+}

@@ -1,0 +1,31 @@
+body > div {
+    max-width: 1600px;
+    margin: auto;
+}
+
+aside img {
+    width:50%;
+}
+table tr th {
+    text-align: right;
+}
+
+table {
+        border-collapse: separate;
+        border-spacing: 15px 5px;
+      }
+
+.helptext {
+    font-style: italic;
+    font-size: smaller;
+    display: block;
+    visibility: hidden;
+}
+
+.form-control:hover + span.helptext {
+    visibility: visible;
+}
+
+.form-control {
+    display:inline-block;
+}

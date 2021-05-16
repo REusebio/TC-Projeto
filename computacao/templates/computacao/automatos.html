@@ -1,0 +1,49 @@
+{% extends 'computacao/layout.html' %}
+
+{% block main %}
+    <main class="col-sm-12 text-center">
+        <h2>Autómatos Finitos Determinísticos (AFD)</h2>
+        <a href="{% url 'computacao:novo_automato' %}" class="container btn btn-success btn-sm btn-block" style="max-width:600px">
+        Clique aqui para criar um novo AFD
+        </a>
+        <br>
+        <p>Apresentam-se em baixo autómatos que foram criados.</p>
+        <table align="center" class="table" style="max-width:1200px">
+            <tr>
+                <th class="text-center col-sm-6 text-center">Diagrama de Estados</th>
+                <th class="text-center col-sm-6 text-center">Descrição</th>
+            </tr>
+            {% load static %}
+            {% for automato in automatos %}
+                <tr class="text-center">
+                    <td>
+                        <a href="{% url 'computacao:automato' automato.id %}">
+                            <img src="{% static automato.diagrama %}" alt="" width="60%">
+                        </a>
+                    </td>
+                    <td style="horizontal-align:bottom">
+                        <p>{{ automato.nome }}</p>
+                        <p>{{ automato.descricao }}</p>
+                        <p>
+                            <a href="{% url 'computacao:automato' automato.id %}" class="btn btn-info  btn-sm">
+                                Detalhes
+                            </a>
+                            <a href="{% url 'computacao:automato' automato.id %}" class="btn btn-success  btn-sm">
+                                Validar Sequência
+                            </a>
+                            <a href="{% url 'computacao:edita_automato' automato.id %}" class="btn btn-warning  btn-sm">
+                                Editar AFD
+                            </a>
+                            <a href="{% url 'computacao:apaga_automato' automato.id %}" class="btn btn-danger  btn-sm">
+                                Apagar AFD
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+{% endblock %}
+
+{% block aside %}
+{% endblock %}

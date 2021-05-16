@@ -1,0 +1,49 @@
+{% extends 'computacao/layout.html' %}
+
+{% block main %}
+    <main class="col-sm-12 text-center">
+        <h2>Expressões Regulares (ER)</h2>
+        <a href="{% url 'computacao:nova_expressao' %}" class="container btn btn-success btn-sm btn-block" style="max-width:600px">
+        Clique aqui para criar uma nova ER
+        </a>
+        <br>
+        <p>Apresentam-se em baixo Expressões Regulares que foram criadas.</p>
+        <table align="center" class="table" style="max-width:1200px">
+            <tr>
+                <th class="text-center col-sm-6 text-center">Expressão Regular</th>
+                <th class="text-center col-sm-6 text-center">Descrição</th>
+            </tr>
+            {% load static %}
+            {% for expressao in expressoes %}
+                <tr class="text-center">
+                    <td>
+                        <a href="{% url 'computacao:expressao' expressao.id %}">
+                        {{ expressao.printRegex}}
+                        </a>
+                    </td>
+                    <td style="horizontal-align:bottom">
+                        <p>{{ expressao.nome }}</p>
+                        <p>{{ expressao.descricao }}</p>
+                        <p>
+                            <a href="{% url 'computacao:expressao' expressao.id %}" class="btn btn-info  btn-sm">
+                                Detalhes
+                            </a>
+                            <a href="{% url 'computacao:expressao' expressao.id %}" class="btn btn-success  btn-sm">
+                                Validar Sequência
+                            </a>
+                            <a href="{% url 'computacao:edita_expressao' expressao.id %}" class="btn btn-warning  btn-sm">
+                                Editar ER
+                            </a>
+                            <a href="{% url 'computacao:apaga_expressao' expressao.id %}" class="btn btn-danger  btn-sm">
+                                Apagar ER
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+{% endblock %}
+
+{% block aside %}
+{% endblock %}

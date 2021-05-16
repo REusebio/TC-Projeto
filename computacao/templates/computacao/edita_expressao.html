@@ -1,0 +1,28 @@
+{% extends 'computacao/layout.html' %}
+
+{% block main %}
+    <main class="col-sm-6">
+        <h2>Expressão Regular</h2>
+        <p>Pode aqui especificar uma nova Expressão Regular que ficará armazenada na base de dados.
+            A Expressão Regular será implementada e poderá ser usada.</p>
+        <form class="form-group" action="{% url 'computacao:edita_expressao' expressao_id %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center">
+                <a href="{% url 'computacao:expressoes' %}" role="button" class="btn btn-warning">Cancelar</a>
+                <input type="submit" class="btn btn-success" value="submeter">
+            </div>
+        </form>
+    </main>
+    <aside class="col-sm-6 text-center">
+        <br><br><br>
+        {% load static %}
+        <img src="{% static 'computacao/images/logo/turing-machine.png' %}" alt="">
+        <br><br>
+        <blockquote class="blockquote">
+            <p class="mb-0">Uma máquina pode fazer o trabalho de cinquenta homens comuns.</p>
+            <p class="mb-0">Nenhuma máquina pode fazer o trabalho de um homem extraordinário.</p>
+            <footer class="blockquote-footer">Elbert Hubbard</footer>
+        </blockquote>
+    </aside>
+{% endblock %}

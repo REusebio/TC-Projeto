@@ -1,0 +1,48 @@
+{% extends 'computacao/layout.html' %}
+
+{% block main %}
+    <main class="col-sm-8 text-center">
+        <h2>{{ expressao.nome|title }}</h2>
+        <p>{{ expressao.descricao }}.</p>
+        <table align="center">
+            <tr align="left">
+                <td>
+                    <p><b>Expressão Regex:</b></p>
+                    <ul>
+                    <li>Regex: {{ expressao.printRegex }} </li>
+                </td>
+        </table>
+        <br>
+        <p><b>Validador:</b> Insira uma sequência e verifique se pertence à linguagem que a Expressão Regular reconhece: </p>
+        <form action="{% url 'computacao:expressao' expressao.id %}" method="POST">
+            {% csrf_token %}
+           <b>{{ form }}</b>
+           <a href="{% url 'computacao:expressoes' %}" role="button" class="btn btn-warning">Cancelar</a>
+            <input type="submit" value="validar" class="btn btn-success">
+        </form>
+        <br>
+        {% if resultado != None %}
+            {% if resultado == True %}
+                <p>A sequência <b>{{ sequencia }}</b> é aceite pela Expressão Regular </p>
+            {% else %}
+                <p>A sequência <b>{{ sequencia }}</b> não é aceite pela Expressão Regular </p>
+            {% endif %}
+        {% else %}
+            <br><br>
+        {% endif %}
+    </main>
+    <aside class="col-sm-4 text-center">
+        <br><br><br>
+        {% load static %}
+        <img src="{% static 'computacao/images/logo/turing-machine.png' %}" alt="">
+        <br><br>
+        <blockquote class="blockquote">
+            <p class="mb-0">Uma máquina pode fazer o trabalho de cinquenta homens comuns.</p>
+            <p class="mb-0">Nenhuma máquina pode fazer o trabalho de um homem extraordinário.</p>
+            <footer class="blockquote-footer">Elbert Hubbard</footer>
+        </blockquote>
+    </aside>
+{% endblock %}
+
+{% block aside %}
+{% endblock %}

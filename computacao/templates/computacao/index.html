@@ -1,0 +1,31 @@
+{% extends 'computacao/layout.html' %}
+
+{% block main %}
+    <main class="col-sm-12">
+        <h2>Introdução</h2>
+        <br><br>
+    </main>
+    <main class="col-sm-6">
+        <blockquote class="blockquote">
+            <p class="mb-0">Os limites da minha linguagem são os limites do meu mundo.</p>
+            <footer class="blockquote-footer">Ludwig Wittgnestein</footer>
+        </blockquote>
+        <p class="text-justify">A teoria da computação é um subcampo da ciência da computação e matemática que busca
+            determinar quais problemas podem ser computados em um dado modelo de computação. A computação pode ser
+            definida como a solução de um problema ou, formalmente, o cálculo de uma função por meio de um algoritmo.
+            Apesar de intuitivo na história humana, o conceito de execução de uma tarefa com passos finitos a fim de
+            se obter um resultado, ou seja, um algoritmo, não possuía uma definição formal até a conceituação do modelo
+            de Máquina Universal de Turing.</p>
+    </main>
+    <aside class="col-sm-6 text-center">
+        <br><br><br>
+        {% load static %}
+        <img src="{% static 'computacao/images/logo/turing-machine.png' %}" alt="">
+        <br><br>
+        <blockquote class="blockquote">
+            <p class="mb-0">Uma máquina pode fazer o trabalho de cinquenta homens comuns.</p>
+            <p class="mb-0">Nenhuma máquina pode fazer o trabalho de um homem extraordinário.</p>
+            <footer class="blockquote-footer">Elbert Hubbard</footer>
+        </blockquote>
+    </aside>
+{% endblock %}

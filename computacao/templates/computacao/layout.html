@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teoria da Computação</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'computacao/style.css' %}">
+    </head>
+    <body>
+        <header class="jumbotron" style="background-color: #FAFAD2">
+            <div class="container text-center">
+                <h1>Teoria da Computação</h1>
+                <br><br>
+            </div>
+            <nav class="navbar navbar-inverse" style="background-color: blue">
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <ul class="navbar-left">
+                            <img src="{% static 'computacao/images/logo/logo.png' %}" style="width:240px">
+                        </ul>
+                        <li class="active"><a style="background-color: blue"></a></li>
+                        <li><a href="{% url 'computacao:index' %}">Introdução</a></li>
+                        <li><a href="{% url 'computacao:automatos' %}">Autómatos</a></li>
+                        <li><a href="{% url 'computacao:maquinas' %}">Máquinas de Turing</a></li>
+                        <li><a href="{% url 'computacao:expressoes' %}">Expressões Regulares</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a style="background-color: blue"> Rui Eusébio</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="container-fluid text-center">
+            <div class="col-sm-12 text-left">
+                {% block main %}
+                {% endblock %}
+            </div>
+        </main>
+    </body>
+</html>
